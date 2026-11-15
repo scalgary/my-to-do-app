@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tasks</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main>
+
+      <h1>Add a recurring task</h1>
+      <form id="new-template">
+        <input id="t-title" placeholder="Title" required />
+        <input id="t-tag" placeholder="Tag" />
+        <select id="t-frequency">
+          <option>once</option>
+          <option>daily</option>
+          <option>weekly</option>
+          <option selected>monthly</option>
+          <option>yearly</option>
+        </select>
+        <label>Start <input id="t-start" type="date" required /></label>
+        <label>End <input id="t-end" type="date" /></label>
+        <button type="submit">Add task</button>
+      </form>
+      <p id="message" role="status"></p>
+      <h1>Tasks</h1>
+
+      <form id="filters">
+        <input id="title" placeholder="Title contains" />
+        <input id="tag" placeholder="Tag" />
+        <select id="done">
+          <option value="">All</option>
+          <option value="false">To do</option>
+          <option value="true">Done</option>
+        </select>
+        <label>From <input id="due_from" type="date" /></label>
+        <label>To <input id="due_to" type="date" /></label>
+        <button type="reset" id="reset">Clear</button>
+      </form>
+
+      <table id="tasks">
+        <thead>
+          <tr>
+            <th><button data-sort="done">Done</button></th>
+            <th><button data-sort="title">Title</button></th>
+            <th><button data-sort="tag">Tag</button></th>
+            <th><button data-sort="due_date">Due date</button></th>
+            <th><button data-sort="id">Id</button></th>
+          </tr>
+        </thead>
+        <tbody id="tasks-body"></tbody>
+      </table>
+      <p id="empty" hidden>No task matches these filters.</p>
+
+
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
